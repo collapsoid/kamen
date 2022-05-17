@@ -1,0 +1,26 @@
+.app-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    height: 40px;
+    background-color: #fff;
+}
+
+.app-header-navbar {
+    display: flex;
+    list-style: none;
+}
+
+.app-header-navbar__item {
+    cursor: pointer;
+    padding: 5px;
+}
+
+.app-header-navbar__item:last-child {
+    padding-right: 0;
+}
