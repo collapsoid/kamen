@@ -6,21 +6,42 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 5px 20px;
-    height: 40px;
-    background-color: #fff;
+    padding: 0 20px;
+    height: 50px;
+    background-color: #1e1f24;
+    color: #fff;
+    box-shadow: 1px 1px 5px 0 #1e1f24;
+    opacity: 0.8;
 }
 
 .app-header-navbar {
     display: flex;
-    list-style: none;
+    height: 100%;
 }
 
 .app-header-navbar__item {
     cursor: pointer;
-    padding: 5px;
+    color: #fff;
+    text-decoration: none;
 }
 
 .app-header-navbar__item:last-child {
     padding-right: 0;
+}
+
+.app-header-navbar__item:hover {
+    background-color: #000;
+}
+
+.app-header-navbar__contacts {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.app-header-link {
+    color: #fff;
+    text-decoration: none;
 }
