@@ -1,0 +1,18 @@
+.product-page__content {
+    padding-left: 250px;
+}
+
+.product-page__content section {
+    height: 500px;
+    border: 1px dashed gray;
+}
+
+.product-page__content section a {
+    position: relative;
+    top: -55px;
+}
+
+.product-page__content section h2 {
+    margin: 0;
+    padding: 0;
+}

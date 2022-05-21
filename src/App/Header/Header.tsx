@@ -1,54 +1,22 @@
-import { Link } from 'react-router-dom';
-
 import './styles.css';
 
+import { galleryItems } from '../../App/Main/Gallery/Gallery';
+import { productItems } from '../../App/Main/Product/Product';
+import { serviceItems } from '../../App/Main/Service/Service';
+import { portfolioItems } from '../../App/Main/Portfolio/Portfolio';
+
 import HeaderDropdown from './HeaderDropdown/HeaderDropdown';
+import { Link } from 'react-router-dom';
 
 
 export default function Header() {
-    const galleryItems = [
-        {anchor: 'marble', name: 'Мрамор'},
-        {anchor: 'onyx', name: 'Оникс'},
-        {anchor: 'granite', name: 'Гранит'},
-        {anchor: 'semiprecious', name: 'Полудраг.'},
-        {anchor: 'quartzite', name: 'Кварцит'},
-        {anchor: 'travertine', name: 'Травертин'},
-        {anchor: 'other', name: 'Другое'}
-    ];
-
-    const endProductsItems = [
-        {anchor: 'slab', name: 'Слэбы'},
-        {anchor: 'plate', name: 'Плита'},
-        {anchor: 'paving', name: 'Брусчатка'},
-        {anchor: 'border', name: 'Бордюры'},
-        {anchor: 'quartzite', name: 'Кварцит'},
-        {anchor: 'portal', name: 'Порталы'},
-        {anchor: 'other', name: 'Другое'}
-    ];
-
-    const serviceItems = [
-        {anchor: 'consultation', name: 'Консультация'},
-        {anchor: 'measurement', name: 'Замер'},
-        {anchor: 'design', name: 'Проектирование'},
-        {anchor: 'production', name: 'Изготовление изделий'},
-        {anchor: 'mounting', name: 'Монтаж'},
-        {anchor: 'restoration', name: 'Реставрация'},
-        {anchor: 'delivery', name: 'Доставка'}
-    ];
-
-    const portfolioItems = [
-        {anchor: 'large-projects', name: 'Крупные проекты'},
-        {anchor: 'exterior', name: 'Внешняя отделка'},
-        {anchor: 'interior', name: 'Внутренняя отделка'},
-        {anchor: 'stairs', name: 'Лестницы'},
-        {anchor: 'countertop', name: 'Столешницы'},
-        {anchor: 'sill', name: 'Подоконники'},
-        {anchor: 'other', name: 'Другое'}
-    ];
-
     return (
         <header className="app-header">
-            <span className="app-header__logo">kamen</span>
+            <span className="app-header__logo">
+                <Link to="/" className="app-header-link">
+                    kamen
+                </Link>
+            </span>
             <nav className="app-header-navbar">
                 <div className="app-header-navbar__item">
                     <HeaderDropdown
@@ -59,9 +27,9 @@ export default function Header() {
                 </div>
                 <div className="app-header-navbar__item">
                     <HeaderDropdown
-                        path="end-products"
+                        path="product"
                         title="Готовая продукция"
-                        items={endProductsItems}
+                        items={productItems}
                     />
                 </div>
                 <div className="app-header-navbar__item">
@@ -79,11 +47,11 @@ export default function Header() {
                     />
                 </div>
                 <div className="app-header-navbar__item">
-                    <div className="app-header-navbar__contacts">
-                        <Link to="/contacts" className="app-header-link">
-                            Контакты
-                        </Link>
-                    </div>
+                    <HeaderDropdown
+                        path="contacts"
+                        title="Контакты"
+                        items={[]}
+                    />
                 </div>
             </nav>
         </header>

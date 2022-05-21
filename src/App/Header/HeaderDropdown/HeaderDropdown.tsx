@@ -7,7 +7,7 @@ interface IHeaderDropdown {
     path: string;
     title: string;
     items: {
-        name: string;
+        title: string;
         anchor: string;
     }[];
 }
@@ -19,11 +19,11 @@ export default function HeaderDropdown({path, title, items}: IHeaderDropdown) {
                 {title}
             </Link>
             <ul className="header-dropdown__list">
-                {items.map(item => (
-                    <li className="header-dropdown__list-item">
-                        <Link to={`/${path}#${item.anchor}`} className="app-header-link">
-                            {item.name}
-                        </Link>
+                {items.map((item, idx) => (
+                    <li key={`${item.title}-${idx}`} className="header-dropdown__list-item">
+                        <a href={`/${path}#${item.anchor}`} className="app-header-link">
+                            {item.title}
+                        </a>
                     </li>
                 ))}
             </ul>

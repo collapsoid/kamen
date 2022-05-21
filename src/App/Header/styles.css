@@ -7,7 +7,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 20px;
-    height: 50px;
+    height: var(--nav-height);
     background-color: #1e1f24;
     color: #fff;
     box-shadow: 1px 1px 5px 0 #1e1f24;
@@ -31,14 +31,6 @@
 
 .app-header-navbar__item:hover {
     background-color: #000;
-}
-
-.app-header-navbar__contacts {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-    padding: 0 15px;
 }
 
 .app-header-link {
