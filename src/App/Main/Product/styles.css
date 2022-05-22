@@ -1,18 +1,9 @@
 .product-page__content {
+    margin-top: -15px;
     padding-left: 250px;
 }
 
-.product-page__content section {
-    height: 500px;
-    border: 1px dashed gray;
-}
-
-.product-page__content section a {
+.product-page__product-info a {
     position: relative;
-    top: -55px;
-}
-
-.product-page__content section h2 {
-    margin: 0;
-    padding: 0;
+    top: -35px;
 }
