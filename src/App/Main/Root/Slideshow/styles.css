@@ -1,4 +1,10 @@
 .main-slideshow {
     position: relative;
-    height: 720px;
+    width: 100%;
+    max-height: 720px;
+}
+
+.main-slideshow__image {
+    width: 100%;
+    max-height: 720px;
 }
