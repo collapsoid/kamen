@@ -13,15 +13,16 @@ interface INavSidebar {
             anchor: string;
         }[];
     }[];
+    threshold?: number;
 }
 
-export function NavSidebar({sections}: INavSidebar) {
+export function NavSidebar({sections, threshold = 150}: INavSidebar) {
     const location = useLocation();
     const [activeItem, setActiveItem] = useState('');
 
     useEffect(() => {
         const onScroll = () => {
-            setActiveItem(getCurrentAnchor(sections));
+            setActiveItem(getCurrentAnchor(sections, threshold));
         };
 
         window.addEventListener('scroll', onScroll);
@@ -33,14 +34,14 @@ export function NavSidebar({sections}: INavSidebar) {
 
     useEffect(() => {
         if (!activeItem) {
-            setActiveItem(getCurrentAnchor(sections));
+            setActiveItem(getCurrentAnchor(sections, threshold));
         }
     }, [activeItem, sections.length, location.hash]);
 
     return (
-        <div className="navigation-sidebar">
+        <nav className="navigation-sidebar">
             {sections.map((section, sectionIdx) => (
-                <div key={`${section.title}-${sectionIdx}`} className="navigation-sidebar__section">
+                <section key={`${section.title}-${sectionIdx}`} className="navigation-sidebar__section">
                     <div className="navigation-sidebar__section-title-container">
                         <h3 className="navigation-sidebar__section-title">
                             {section.title}
@@ -61,14 +62,14 @@ export function NavSidebar({sections}: INavSidebar) {
                             </li>
                         ))}
                     </ul>
-                </div>
+                </section>
             ))}
-        </div>
+        </nav>
     );
 }
 
 
-function getCurrentAnchor(sections: INavSidebar['sections']) {
+function getCurrentAnchor(sections: INavSidebar['sections'], threshold: number) {
     const anchors = sections.map(section => section.items.map(item => document.getElementById(item.anchor))).flat();
     let activeItem = '';
 
@@ -79,7 +80,7 @@ function getCurrentAnchor(sections: INavSidebar['sections']) {
 
         const top = anchor.getBoundingClientRect().top;
 
-        if (top < 150) {
+        if (top < threshold) {
             activeItem = anchor.id;
         }
     });

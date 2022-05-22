@@ -1,6 +1,6 @@
 .navigation-sidebar {
     position: fixed;
-    top: calc(0 + var(--nav-height));
+    top: var(--nav-height);
     width: 250px;
     height: 100%;
     background-color: #eaeaea;
